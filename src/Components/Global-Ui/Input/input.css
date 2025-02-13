@@ -1,0 +1,30 @@
+
+.input-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:1em
+}
+
+.input-wrapper input {
+  width: 327px;
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 27px;
+  text-align: start;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  border-radius: 8px;
+  color: rgba(0, 0, 0, 1);
+  border: 2px solid black;
+  padding: 8px;
+}
+
+
+label{
+    font-family: Poppins;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 27px; 
+}

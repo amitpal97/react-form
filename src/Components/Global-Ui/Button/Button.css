@@ -1,0 +1,16 @@
+.btn-wrapper {
+  margin-left: 6em;
+}
+
+.global-btn {
+  padding: 13px 95px;
+  border-radius: 8px;
+  width: 325px;
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 21.78px;
+  text-align: center;
+  background-color: rgba(194, 245, 120, 1);
+  cursor: pointer;
+}
