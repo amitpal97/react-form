@@ -9,15 +9,7 @@ import useApiCall from "../Custome-hook";
 function SignUp() {
 
 
-    const { state, updateFiled } = useAppContext()
-
-    // const apiCall = useApiCall()
-    // const apiUrl = "https://jsonplaceholder.typicode.com/posts"
-
-
-    // useEffect(() => {
-    //     apiCall(apiUrl)
-    // })
+    const { state, dispatch, updatefiledReducer } = useAppContext()
 
     const {
         register,
@@ -28,18 +20,17 @@ function SignUp() {
 
     const onFormSubmit = (data, error) => {
         console.log("form data:", data);
-        updateFiled(data)
+        dispatch({
+            type: "form", payload: {
+                input: "amit", password: "amitpal"
+            }
+        })
 
-        // setTimeout(() => {
-
-        // }, 2000)
         localStorage.setItem(data.userName, JSON.stringify(data));
 
 
     }
-    // useEffect(() => {
 
-    // }, [state.userName])
 
 
 
@@ -147,13 +138,9 @@ function SignUp() {
                             className={""} />
 
                         <Button buttonText="Click for Login"
-
-
                             className={""} style={{ background: "yellow" }}
                             onClick={() => {
-
                                 updateFiled({ 'headingFlag': true, 'formHeading': "Login" })
-
                             }}
 
                         />
