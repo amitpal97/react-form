@@ -66,11 +66,30 @@ export const AppProvider = ({ children }) => {
         formHeading: "Login",
         password: "",
         headingFlag: true,
-        form: {
-            input: "",
-            password: "",
-
+        // form recipt data
+        formRecipt: {
+            reciptAddress: "Shree Narayan School, Bharat Petrol Pump Cross RoadBeside Kanha Duplex, Wagoriha,Dhohi Ring Road Vadadara , ph:977979797",
+            reciptNumber: "",
+            reciptDate: "",
+            reciptMobNumber: "",
+            studentDetails: {
+                studentName: "",
+                studentId: "",
+                studentFatherName: "",
+                class_Standard: "",
+                section: "",
+                paidBy: ""
+            },
+            paymentData: {
+                description: "",
+                amount: "",
+                paymentMethod: "",
+                totalFees: "",
+                paidFees: "",
+                balanceFess: ""
+            }
         }
+        // from ended
     }
 
 
@@ -85,8 +104,8 @@ export const AppProvider = ({ children }) => {
                 };
             case "form": return {
                 ...state,
-                form: {
-                    ...state.form,
+                formRecipt: {
+                    ...state.formRecipt,
                     ...action.payload
 
                 }
