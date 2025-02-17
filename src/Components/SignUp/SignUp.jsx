@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import Input from "../Global-Ui/Input";
-import Button from "../Global-Ui/Button";
-import { useAppContext } from "../Context/Appcontext";
+
 import "./SignUp.css"
 import { useForm } from "react-hook-form";
-import useApiCall from "../Custome-hook";
+import useApiCall from "../../Custome-hook";
+import { useAppContext } from "../../Context";
+import Input from "../../Global-Ui/Input"
+import Button from "../../Global-Ui/Button"
+
 
 function SignUp() {
 
@@ -21,9 +23,8 @@ function SignUp() {
     const onFormSubmit = (data, error) => {
         console.log("form data:", data);
         dispatch({
-            type: "form", payload: {
-                input: "amit", password: "amitpal"
-            }
+            type: "all", payload: data
+
         })
 
         localStorage.setItem(data.userName, JSON.stringify(data));
@@ -82,7 +83,7 @@ function SignUp() {
                             className={""}
                             style={{ background: "yellow" }}
                             onClick={() => {
-                                updateFiled({ 'headingFlag': false, 'formHeading': "SignUp" })
+                                dispatch({ type: "all", payload: { headingFlag: false, formHeading: "SignUp" } })
                             }} />
 
 
@@ -140,7 +141,8 @@ function SignUp() {
                         <Button buttonText="Click for Login"
                             className={""} style={{ background: "yellow" }}
                             onClick={() => {
-                                updateFiled({ 'headingFlag': true, 'formHeading': "Login" })
+                                dispatch({ type: "all", payload: { headingFlag: true, formHeading: "Login" } })
+
                             }}
 
                         />
