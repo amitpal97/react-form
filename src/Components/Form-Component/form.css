@@ -1,3 +1,11 @@
+.recipt-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+  
+}
+
 .recipt-wrapper {
   display: flex;
   flex-direction: column;
@@ -22,4 +30,24 @@
   display: flex;
   gap: 2px;
   font-size: 17px;
+}
+
+.studentDetails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.studentDetails .input-wrapper {
+  /* flex: 1 1 0; */
+}
+
+.paymentData {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
 }

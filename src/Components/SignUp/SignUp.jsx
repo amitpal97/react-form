@@ -6,12 +6,21 @@ import useApiCall from "../../Custome-hook";
 import { useAppContext } from "../../Context";
 import Input from "../../Global-Ui/Input"
 import Button from "../../Global-Ui/Button"
+import { useDispatch, useSelector } from "react-redux";
+
+import { all, from } from "../../State-Mangement/redux-Toolkit/app/Slice/createSlice";
+
 
 
 function SignUp() {
 
 
-    const { state, dispatch, updatefiledReducer } = useAppContext()
+    // const { state, dispatch, updatefiledReducer } = useAppContext()
+    const reduxDispatch = useDispatch()
+    const reduxSelect = useSelector(state => state.form);
+    // console.log("reduxSelect:", reduxSelect.formHeading);
+
+
 
     const {
         register,
@@ -22,10 +31,9 @@ function SignUp() {
 
     const onFormSubmit = (data, error) => {
         console.log("form data:", data);
-        dispatch({
-            type: "all", payload: data
+        console.log("reduxSelect :", reduxSelect);
 
-        })
+        reduxDispatch(all(data))
 
         localStorage.setItem(data.userName, JSON.stringify(data));
 
@@ -43,10 +51,10 @@ function SignUp() {
         <div className="signUp-wrapper">
 
             <form onSubmit={handleSubmit(onFormSubmit)} >
-                {state.headingFlag ?
+                {reduxSelect.headingFlag ?
                     <div className="signUp-wrapper">
                         <div className="form-heading">
-                            {state.formHeading}
+                            {reduxSelect.formHeading}
                         </div>
 
                         <Input
@@ -79,12 +87,12 @@ function SignUp() {
                             type="submit"
                         />
 
-                        <Button buttonText="Click for SignUp"
+                        {/* <Button buttonText="Click for SignUp"
                             className={""}
                             style={{ background: "yellow" }}
                             onClick={() => {
-                                dispatch({ type: "all", payload: { headingFlag: false, formHeading: "SignUp" } })
-                            }} />
+                                reduxDispatch(all({ payload: { headingFlag: false, formHeading: "SignUp" } }))
+                            }} /> */}
 
 
                     </div> :
@@ -92,7 +100,7 @@ function SignUp() {
 
 
                         <div className="form-heading">
-                            {state.formHeading}
+                            {reduxSelect.formHeading}
                         </div>
 
 
@@ -138,18 +146,22 @@ function SignUp() {
                             type="submit"
                             className={""} />
 
-                        <Button buttonText="Click for Login"
-                            className={""} style={{ background: "yellow" }}
-                            onClick={() => {
-                                dispatch({ type: "all", payload: { headingFlag: true, formHeading: "Login" } })
 
-                            }}
-
-                        />
 
                     </div>}
             </form>
+            <Button buttonText="Click for Login"
+                className={""} style={{ background: "red" }}
+                onClick={() => {
 
+                    // dispatch({ type: "all", payload: { headingFlag: true, formHeading: "Login" } })
+                    reduxDispatch(all({ headingFlag: true, formHeading: "signUp" }))
+                    console.log("clicked");
+                    console.log("reduxSelect :", reduxSelect);
+                    
+                }}
+
+            />
 
         </div>
 

@@ -8,7 +8,7 @@ function Button({ buttonText, className, ...rest }) {
             <div className="btn-wrapper">
 
                 <button className={`global-btn ${className}`} {...rest}>{buttonText}</button>
-            </div>
+        </div >
         </>
     )
 }

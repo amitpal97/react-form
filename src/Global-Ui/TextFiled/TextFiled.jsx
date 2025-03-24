@@ -4,9 +4,12 @@ import "./TextFiled.css"
 const TextFiled = ({ label, style = { color: "black" }, name, type = "text", placeholder, ...rest }) => {
     return (<>
         <div className="TextFiled-wrapper">
-            <p name="" id="">
-                dnmn
-            </p>
+            <label htmlFor={name}>{label}</label>
+            <textarea name="" id="" type={type}
+                placeholder={placeholder}>
+
+            </textarea>
+
             {/* 
             type={type}
             placeholder={placeholder}
